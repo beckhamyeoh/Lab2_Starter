@@ -111,8 +111,12 @@
 
       <hr>
 
+      <section>
         <h2>Favorite Dessert</h2>
-        <form>
+        <div id="success-message" style="display: none; background-color: #d4edda; color: #155724; padding: 10px; margin-bottom: 10px; border-radius: 4px;">
+          ✓ Thank you! Your favorite dessert has been submitted.
+        </div>
+        <form id="dessert-form">
           <fieldset>
             <h3>Tell us about your favorite dessert!</h3>
 
@@ -145,10 +149,21 @@
 
             <br><br>
 
-            <button type="button">Share My Favorite</button>
+            <button type="button" onclick="submitDessert()">Share My Favorite</button>
             <button type="reset">Start Over</button>
           </fieldset>
         </form>
+
+        <script>
+          function submitDessert() {
+            document.getElementById('dessert-form').reset();
+            const successMsg = document.getElementById('success-message');
+            successMsg.style.display = 'block';
+            setTimeout(() => {
+              successMsg.style.display = 'none';
+            }, 3000);
+          }
+        </script>
       </section>
 
       <hr>
